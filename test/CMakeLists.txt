@@ -16,7 +16,7 @@ verbose_message("Adding tests under ${CMAKE_PROJECT_NAME}Tests...")
 #
 
 set(test_sources 
-  src/tmp_test.cpp
+  src/test.cpp
 )
 add_executable(${PROJECT_NAME} ${test_sources})
 
@@ -54,7 +54,7 @@ if(${CMAKE_PROJECT_NAME}_USE_GTEST)
       GTest::gtest
       GTest::gtest_main
       ${GOOGLE_MOCK_LIBRARIES}
-      Project
+      WorkQueues::WorkQueues
   )
 elseif(${CMAKE_PROJECT_NAME}_USE_CATCH2)
   find_package(Catch2 REQUIRED)
@@ -62,7 +62,7 @@ elseif(${CMAKE_PROJECT_NAME}_USE_CATCH2)
     ${PROJECT_NAME} 
     PUBLIC
       Catch2::Catch2
-      Project
+      WorkQueues::WorkQueues
   )
 else()
   message(FATAL_ERROR "Unknown testing library. Please setup your desired unit testing library by using `target_link_libraries`.")  

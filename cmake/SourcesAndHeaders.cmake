@@ -1,7 +1,6 @@
 set(sources
-    src/tmp.cpp
 )
 
 set(headers
-    include/project/tmp.hpp
+    include/work-queues/work_queues.h
 )
